@@ -1,0 +1,250 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+
+\title{Tutoriel iptables v. 1.2.2}
+\author{Oskar Andreason} 
+\date{1 janvier 2006}
+
+\begin{document}
+
+\maketitle 
+
+\tableofcontents 
+
+\part{Tutoriel} % Partie I
+
+% --------------------------------------------------------- Chapitre 1
+
+\chapter{Introduction} % Chapitre 1
+
+\section{But du document} % I - 1 - 1
+Eh bien il manquait des informations à propos d'iptables et du parefeu netfilter dans les noyaux linux 2.4.x. Entre autres je vais essayer de répondre aux questions liés aux machines à état. La plupart sera illustrée dans l'exemple $ rc.firewall.txt $ que vous pouvez utiliser dans vos scripts dand $ /etc/rc.d/ $. Et oui, ce texte provient du HoxTo décrivant le masquage d'IP, pour ceux qui l'ont reconnu.
+
+Il y a aussi un petit script que j'ai écrit pour la remise à zéro en cas d'erreur grave, sous le nom $rc.flush-iptables.txt $.
+
+\section{Comment ce document a été écrit} % I - 1 - 2
+
+\section{Termes utilisés dnas ce document} % I - 1 - 3
+
+\section{Et ensuite ?} % I - 1 - 4
+
+% --------------------------------------------------------- Chapitre 2
+
+\chapter{retour sur la pile TCP/IP} % I - 2
+
+\section{Les couches de TCP/IP} % I - 2 - 1
+
+\section{Caractéristiques d'IP}
+
+\section{En-têtes d'IP}
+
+\section{Caractéristiques de TCP}
+
+\section{En-têtes de TCP}
+
+\section{Caractéristiques de UDP}
+
+\section{En-têtes de UDP}
+
+\section{Caractéristiques de ICMP}
+
+\section{En-têtes de ICMP}
+
+\subsection{La requête ICMP et sa réponse}
+
+\subsection{ICMP : destination injoignable}
+
+\subsection{ICMP : Extinction de la source (source quench)}
+
+\subsection{Redirection}
+
+\subsection{TTL vaut 0}
+
+\subsection{Problème de paramètre}
+
+\subsection{Requête d'heure et réponse}
+
+\subsection{Demande de masque sous-réseau et réponse}
+
+%
+\section{Caractéristiques SCTP}
+
+\subsection{Initialisation et association}
+
+\subsection{envoi de données et contrôle de session}
+
+\subsection{Extinction et Avortement de session}
+
+%
+\section{En-tête SCTP}
+
+\subsection{Format générique du header}
+
+\subsection{Headers communs et génériques}
+
+\subsection{Le segment SCTP ABORT}
+
+\subsection{Le segment SCTP COOKIE ACK}
+
+\subsection{Le segment SCTP COOKIE ECHO}
+
+\subsection{Le segment SCTP DATA}
+
+\subsection{Le segment SCTP ERROR}
+
+\subsection{Le segment SCTP HEARTBEAT}
+
+\subsection{Le segment SCTP HEARTBEAT ACK}
+
+\subsection{Le segment SCTP INIT}
+
+\subsection{Le segment SCTP INIT ACK}
+
+\subsection{Le segment SCTP SACK}
+
+\subsection{Le segment SCTP SHUTDOWN}
+
+\subsection{Le segment SCTP SHUTDOWN ACK}
+
+\subsection{Le segment SCTP SHUTDOWN ACK COMPLETE}
+
+%
+\section{Le routage orienté destination de TCP/IP}
+
+\section{Et ensuite ?}
+
+% --------------------------------------------------------- Chapitre 3
+\chapter{Introduction au filtrage IP}
+
+\section{Qu'est-ce qu'un filtre IP ?}
+
+\section{Termes et expressions du filtrage IP}
+
+\section{Comment orrganiser un filtrage IP ?}
+
+\section{Et ensuite ?}
+
+% --------------------------------------------------------- Chapitre 4
+\chapter{Introduction aux traductions d'adresse réseau (NATs)}
+
+\section{À quoi sert un NAT et définitions}
+
+\section{Avertissement d'utilisation du NAT}
+
+\section{Exemple d'un NAT théorique}
+
+\subsection{Ce qu'il faut pour construire un NAT}
+
+\subsection{Positionnement d'un NAT}
+
+\subsection{Positionnement d'un proxy}
+
+\subsection{État final du NAT}
+
+%
+\section{Et ensuite ?}
+
+% --------------------------------------------------------- Chapitre 5
+\chapter{Préparatifs}
+
+\section{Où obtenir iptables ?}
+
+\section{Paramétrage du noyau}
+
+\section{Paramétrage de l'espace utilisateur}
+
+\subsection{Compiler les applications en espace utilisateur}
+
+\subsection{Installation sur RedHat 7.1}
+
+\section{Et ensuite ?}
+
+% --------------------------------------------------------- Chapitre 6
+\chapter{Traversée des tables et chaînes}
+
+\section{Généralités}
+
+\section{La table Mangle}
+
+\section{La atble NAT}
+
+\section{La table Raw}
+
+\section{La table Filter}
+
+\section{Chaînes définies par l'utilisateur}
+
+\section{Et ensuite ?}
+
+% --------------------------------------------------------- Chapitre 7
+\chapter{La machine à états}
+
+\section{Introduction}
+
+\section{Les entrées de conntrack}
+
+\section{Les états en espace utilisateur}
+
+\section{Connections TCP}
+
+\section{Connections UDP}
+
+\section{Connections ICMP}
+
+\section{Connections par défaut}
+
+\section{Connections non suivies et table Raw}
+
+\section{Protocoles complexes et trackers de connections}
+
+\section{Et ensuite ?}
+
+% --------------------------------------------------------- Chapitre 8
+\chapter{Sauvegarder et restaurer un grand nombre de règles}
+
+\section{Considération sur la vitesse}
+
+\section{Inconvénients de la restauration}
+
+\section{iptables-save}
+
+\section{iptables-restore}
+
+\section{Et ensuite ?}
+
+% --------------------------------------------------------- Chapitre 9
+\chapter{Construction de règle}
+
+\section{Bases de la commande iptables}
+
+\section{Tables}
+
+\section{Commandes}
+
+\section{Et ensuite ?}
+
+% --------------------------------------------------------- Chapitre 10
+
+\chapter{Correspondance avec iptables}
+
+\section{Correspondance génériques}
+
+\section{Correspondances implicites}
+
+\subsection{Correspondance TCP}
+
+\subsection{Correspondance UDP}
+
+\subsection{Correspondance ICMP}
+
+\subsection{Correspondances SCTP}
+
+\section{Correspondances Explicites}
+
+
+
+
+ 
+\end{document}
